@@ -10,6 +10,12 @@ const getExistedSubscribers = () => {
  * @return {import('@vercel/node').VercelResponse}
  */
 const handler = async (request, response) => {
+	if (request.method !== 'POST') {
+		return response.status(405).json({
+			message: `Метод ${request.method} не підтримується! Використовуйте метод POST`,
+		});
+	}
+
 	const email = request.body.email;
 	if (!email) {
 		return response.status(400).json({
