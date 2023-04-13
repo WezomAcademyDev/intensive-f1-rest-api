@@ -34,7 +34,7 @@ const handler = async (request, response) => {
 	if (!email) {
 		return response.json({
 			success: false,
-			message: `Пошта не була вказана! Вкажіть пошту`,
+			message: `Пошта не була вказана! Вкажіть поле "email"`,
 		});
 	}
 
