@@ -18,9 +18,10 @@ const handler = async (request, response) => {
 
 	const email = request.body.email;
 	if (!email) {
-		response.statusCode = 400;
-		response.statusMessage = `Пошта не була вказана! Вкажіть пошту`;
-		return response.end();
+		return response.json({
+			success: false,
+			message: `Пошта не була вказана! Вкажіть пошту`,
+		});
 	}
 
 	const existedSubscribers = getExistedSubscribers();
@@ -29,14 +30,15 @@ const handler = async (request, response) => {
 	);
 
 	if (isExisted) {
-		response.statusCode = 400;
-		response.statusMessage = `Пошта "${email}" вже була додана до списку підписників раніше! Вкажіть іншу пошту`;
-		return response.end();
+		return response.json({
+			success: false,
+			message: `Пошта "${email}" вже була додана до списку підписників раніше! Вкажіть іншу пошту`,
+		});
 	} else {
 		// save email to database ...
 		// send email to admin ...
 		// send message to user
-		return response.json({ message: `Дякуємо за підписку!` });
+		return response.json({ success: true, message: `Дякуємо за підписку!` });
 	}
 };
 
