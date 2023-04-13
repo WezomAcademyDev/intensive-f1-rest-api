@@ -1,4 +1,4 @@
-exports.allowCors = (fn) => async (req, res) => {
+exports.withCors = (fn) => async (req, res) => {
 	res.setHeader('Access-Control-Allow-Credentials', true);
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	// another common pattern

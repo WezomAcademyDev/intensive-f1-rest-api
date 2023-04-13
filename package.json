@@ -1,6 +1,12 @@
 {
+  "scripts": {
+    "start": "vercel dev"
+  },
   "devDependencies": {
     "@vercel/node": "^2.10.3",
     "prettier": "^2.8.7"
+  },
+  "dependencies": {
+    "formidable": "^2.1.1"
   }
 }
