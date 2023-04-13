@@ -34,6 +34,7 @@ const handler = async (request, response) => {
 	if (!email) {
 		return response.json({
 			success: false,
+			title: 'Помилка!',
 			message: `Пошта не була вказана! Вкажіть поле "email"`,
 		});
 	}
@@ -46,6 +47,7 @@ const handler = async (request, response) => {
 	if (isExisted) {
 		return response.json({
 			success: false,
+			title: 'Помилка!',
 			message: `Пошта "${email}" вже була додана до списку підписників раніше! Вкажіть іншу пошту`,
 		});
 	} else {
@@ -54,6 +56,7 @@ const handler = async (request, response) => {
 		// send message to user
 		return response.json({
 			success: true,
+			title: 'Вітаємо!',
 			message: `Дякуємо за підписку!`,
 		});
 	}
