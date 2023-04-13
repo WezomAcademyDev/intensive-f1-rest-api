@@ -1,4 +1,4 @@
-const allowCors = require('../utils/allowCors');
+const { allowCors } = require('../utils/allowCors');
 
 const getExistedSubscribers = () => {
 	return [{ email: 'exist@gmail.com' }, { email: 'sdf@sdf.sdf' }];
